@@ -36,9 +36,6 @@ public class SuperArray {
     if (index < 0 || index >= size()) {
       return "Error.";
     }
-    else
-      return data[index];
-    }
     return data[index];
   }
   public String toString() {
