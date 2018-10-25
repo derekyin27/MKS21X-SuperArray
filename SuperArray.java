@@ -29,10 +29,26 @@ public class SuperArray {
         data[i] = element;
         return true;
       }
-      return false;
     }
-
+      return false;
   }
+  public String get(int index){
+    if (size() < index){
+      return "Error.";
+    }
+    else if (size() >= index){
+      return data[index];
+    }
+    return data[index];
+  }
+  public String toString() {
+    String str = "";
+    for (int i = 0; i < size(); i++){
+      str = str + data[i] + ",";
+    }
+    return "[" + str + data[size()] + "]"
+  }
+
   public String set(int index, String element){
     String x = data[index];
     data[index] = element;
