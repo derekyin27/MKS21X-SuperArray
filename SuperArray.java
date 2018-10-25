@@ -33,28 +33,49 @@ public class SuperArray {
       return false;
   }
   public String get(int index){
-    if (size() < index){
+    if (index < 0 || index >= size()) {
       return "Error.";
     }
-    else if (size() >= index){
+    else
       return data[index];
     }
     return data[index];
   }
   public String toString() {
     String str = "";
-    for (int i = 0; i < size(); i++){
-      str = str + data[i] + ",";
+    for (int i = 0; i < size; i++){
+      str = str + data[i] + ", ";
     }
-    return "[" + str + data[size()] + "]"
+    return "[" + str + data[size-1] + "]";
   }
+  public String toStringDebug() {
 
+  }
+public boolean contains(String element){
+  for (int i = 0; i < size-1; i++){
+    if (data[i].equals(element)){
+      return true;
+    }
+  }
+    return false;
+}
   public String set(int index, String element){
+    if (index < 0 || index >= size()) {
+      return "Error";
+    }
+    else {
     String x = data[index];
     data[index] = element;
     return x;
   }
+}
 public void add(int index, String element){
-
+  String[] start = new String[index];
+  for (int i =0; i < size-1; i++){
+    start[i] = data[i];
+    if (i == index){
+      start[i] = element;
+    }
+  }
 }
 }
