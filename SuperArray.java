@@ -10,7 +10,7 @@ public class SuperArray {
   }
   public int size() {
     int c = 0;
-    for (int i = 0; i < data.length-1; i++){
+    for (int i = 0; i < size-1; i++){
       if (data[i] != null){
         c++;
       }
@@ -18,28 +18,26 @@ public class SuperArray {
     return c;
   }
   public boolean isEmpty() {
-    if (size == 0) {
-      return true;
+    return size ==0;
     }
-    else return false;
-  }
+
   public boolean add(String element){
-    for (int i = 0; i<data.length; i++){
-      if (data[i] == null){
-        data[i] = element;
-        return true;
-      }
+    if (data.length = size) {
+      resize();
     }
-      return false;
+    data[size] = element;
+    size++;
+    return true;
   }
   public String get(int index){
     if (index < 0 || index >= size()) {
-      return "Error.";
+      System.out.println("Error");
     }
     return data[index];
   }
   public String toString() {
     String str = "";
+    if (size == 0) return "[]";
     for (int i = 0; i < size; i++){
       str = str + data[i] + ", ";
     }
@@ -49,7 +47,7 @@ public class SuperArray {
 
   }
 public boolean contains(String element){
-  for (int i = 0; i < size-1; i++){
+  for (int i = 0; i < size; i++){
     if (data[i].equals(element)){
       return true;
     }
@@ -58,7 +56,8 @@ public boolean contains(String element){
 }
   public String set(int index, String element){
     if (index < 0 || index >= size()) {
-      return "Error";
+      System.out.println("Error");
+      return null;
     }
     else {
     String x = data[index];
@@ -66,13 +65,18 @@ public boolean contains(String element){
     return x;
   }
 }
-public void add(int index, String element){
-  String[] start = new String[index];
-  for (int i =0; i < size-1; i++){
-    start[i] = data[i];
-    if (i == index){
-      start[i] = element;
-    }
+
+private void resize() {
+  String[] resized = new String[size * 2];
+  for (int i = 0; i < size; i++){
+    resized[i] = data[i];
   }
+  data = resized;
 }
+public void add(int index, String element){
+  if (index < 0 || index >= size()) {
+    System.out.println("Error");
+    return null;
+  }
+  
 }
