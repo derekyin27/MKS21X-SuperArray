@@ -52,14 +52,6 @@ public class SuperArray {
     return "[" + str + data[data.length-1] + "]";
     }
 
-public boolean contains(String element){
-  for (int i = 0; i < size; i++){
-    if (data[i].equals(element)){
-      return true;
-    }
-  }
-    return false;
-}
   public String set(int index, String element){
     if (index < 0 || index >= size()) {
       System.out.println("Error");
@@ -78,6 +70,37 @@ private void resize() {
     resized[i] = data[i];
   }
   data = resized;
+}
+public boolean contains(String element){
+  for (int i = 0; i < size; i++){
+    if (data[i].equals(element)){
+      return true;
+    }
+  }
+    return false;
+}
+public int indexOf(String target){
+  for (int i = 0; i < size; i++){
+    if (data[i].equals(target)) {
+      return i;
+    }
+  }
+  return -1;
+}
+public int lastIndexOf(String target){
+  for (int i = size-1; i >= 0; i--){
+    if (data[i].equals(target)){
+      return i;
+    }
+  }
+  return -1;
+}
+public String remove(int index){
+  if (index < 0 || index >= size()) {
+    System.out.println("Error");
+    return null;
+  }
+  
 }
 //public void add(int index, String element){
   //if (index < 0 || index >= size()) {
