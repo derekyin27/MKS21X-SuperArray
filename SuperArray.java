@@ -18,7 +18,7 @@ public class SuperArray {
     return c;
   }
   public boolean isEmpty() {
-    return size ==0;
+    return size == 0;
     }
 
   public boolean add(String element){
@@ -78,5 +78,5 @@ public void add(int index, String element){
     System.out.println("Error");
     return null;
   }
-  
+
 }
