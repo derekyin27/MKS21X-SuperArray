@@ -22,7 +22,7 @@ public class SuperArray {
     }
 
   public boolean add(String element){
-    if (data.length = size) {
+    if (data.length == size) {
       resize();
     }
     data[size] = element;
@@ -44,8 +44,14 @@ public class SuperArray {
     return "[" + str + data[size-1] + "]";
   }
   public String toStringDebug() {
+    String str = "";
+    if (size == 0) return "[]";
+    for (int i = 0; i < data.length; i++){
+      str = str + data[i] + ", ";
+    }
+    return "[" + str + data[data.length-1] + "]";
+    }
 
-  }
 public boolean contains(String element){
   for (int i = 0; i < size; i++){
     if (data[i].equals(element)){
@@ -73,10 +79,11 @@ private void resize() {
   }
   data = resized;
 }
-public void add(int index, String element){
-  if (index < 0 || index >= size()) {
-    System.out.println("Error");
-    return null;
-  }
+//public void add(int index, String element){
+  //if (index < 0 || index >= size()) {
+    //System.out.println("Error");
+    //return null;
+  //}
+
 
 }
