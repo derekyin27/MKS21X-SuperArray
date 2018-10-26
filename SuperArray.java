@@ -95,18 +95,39 @@ public int lastIndexOf(String target){
   }
   return -1;
 }
+
+public void add(int index, String element){
+  if (index < 0 || index >= size()) {
+    System.out.println("Error");
+  }
+  for (int i = size-1; i >= index; i--){
+    data[i+1] = data[i];
+  }
+  data[index] = element;
+  size++;
+}
 public String remove(int index){
   if (index < 0 || index >= size()) {
     System.out.println("Error");
     return null;
   }
-  
+  String removed = data[index];
+  for (int i = index+1; i < size; i++){
+    data[i-1] = data[i];
+  }
+  data[size-1] = null;
+  return removed;
 }
-//public void add(int index, String element){
-  //if (index < 0 || index >= size()) {
-    //System.out.println("Error");
-    //return null;
-  //}
-
-
+public boolean remove(String element){
+  for (int i = 0; i < size; i++){
+    if (data[i].equals(element)) {
+      for (int p = i+1; p < size; p++){
+        data[p-1] = data[p];
+      }
+      data[size-1]= null;
+      size--;
+    }
+  }
+  return false;
+}
 }
