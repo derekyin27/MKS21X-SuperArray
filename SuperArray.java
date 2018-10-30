@@ -35,7 +35,7 @@ public class SuperArray {
   }
   public String get(int index){
     if (index < 0 || index >= size()) {
-      System.out.println("indexOutOfBoundsException");
+      throw new indexOutOfBoundsException();
     }
     return data[index];
   }
@@ -58,7 +58,7 @@ public class SuperArray {
 
   public String set(int index, String element){
     if (index < 0 || index >= size()) {
-      System.out.println("indexOutOfBoundsException");
+      throw new indexOutOfBoundsException();
       return null;
     }
     else {
@@ -102,7 +102,7 @@ public int lastIndexOf(String target){
 
 public void add(int index, String element){
   if (index < 0 || index >= size()) {
-    System.out.println("indexOutOfBoundsException");
+    throw new indexOutOfBoundsException();
   }
   for (int i = size-1; i >= index; i--){
     data[i+1] = data[i];
@@ -112,7 +112,7 @@ public void add(int index, String element){
 }
 public String remove(int index){
   if (index < 0 || index >= size()) {
-    System.out.println("indexOutOfBoundsException");
+    throw new indexOutOfBoundsException();
     return null;
   }
   String removed = data[index];
